@@ -19,4 +19,12 @@ contract("DecentralBank", (accounts) => {
       assert.equal(name, "Mock Tether Token");
     });
   });
+
+  describe("Reward Token deployment", async () => {
+    it("Matches name successfuly", async () => {
+      let reward = await RWD.new();
+      const name = await reward.name();
+      assert.equal(name, "Reward Token");
+    });
+  });
 });
