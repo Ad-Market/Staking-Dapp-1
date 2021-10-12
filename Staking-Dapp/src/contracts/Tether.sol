@@ -23,20 +23,43 @@ contract Tether{
     );
 
     mapping(address => uint256) public balanceOf;
+    mapping(address => mapping(address => uint256)) public allowance;
 
     constructor() public {
         // owner has the total supply
         balanceOf[msg.sender] = totalSupply;
     }
 
+    function approve(address _spender, uint256 _value) public returns (bool success) {
+        allowance[msg.sender][_spender] = _value;
+        emit Approval(msg.sender, _spender, _value);
+        return true;
+    }
+
     function transfer(address _to, uint256 _value) public returns (bool success) {
-        // require that the value is greater or equal to the amount for transfer
+        // check that the value is greater or equal to the amount for transfer
         require(balanceOf[msg.sender] >= _value);
         // transfer the amount and subtract the balance from who is currently using the bank
         balanceOf[msg.sender] -= _value;
         // add the balance to the reciever balance in the mapping
         balanceOf[_to] += _value;
+        // emit the event
         emit Transfer(msg.sender, _to, _value);
+        // return true for successful transfer
         return true;
     }
+    // allows third parties to do transfers on behaf of the user
+    function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) {
+        // require the balance who we are sending from to be greater than the value sent
+        require(_value <= balanceOf[_from]);
+
+        require(_value <= allowance[_from][msg.sender]);
+        // add the balance for transferFrom
+        balanceOf[_to] += _value;
+        // subtract the balance for transferFrom
+        balanceOf[_from] -= _value;
+        allowance[msg.sender][_from] -= _value;
+        emit Transfer(_from, _to, _value);
+        return true;
+    }    
 }
