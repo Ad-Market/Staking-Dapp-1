@@ -109,6 +109,10 @@ contract("DecentralBank", ([owner, customer]) => {
         );
 
         // Check issue reward tokens
+        await decentralBank.issueTokens({ from: owner });
+
+        // ensure only owner issue tokens
+        await decentralBank.issueTokens({ from: customer }).should.be.rejected;
 
         // End of rewards tokens for staking 'it'
       });
