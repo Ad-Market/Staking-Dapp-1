@@ -15,11 +15,39 @@ contract DecentralBank {
     Tether public tether;
     RWD public rwd;
 
+    //keep track of our stakers
+    address[] public stakers;
+
+    // keep track of who is staking what
+    mapping(address => uint) public stakingBlanace;
+    // to check who staked before or not
+    mapping(address => bool) public hasStaked;
+    // to check if investor is currently staking
+    mapping(address => bool) public isStaking;
+
     // the constructor takes reward and tehter token and set arguments to the contracts
     constructor(RWD _rwd, Tether _tether) public {
         rwd = _rwd;
         tether = _tether;
         owner = msg.sender;
+    }
+
+    function depositTokens(uint _amount) public{
+        // trasnfer tether tokens to this contract address from the person calling this contract for staking
+        tether.transferFrom(msg.sender, address(this), _amount);
+
+        // updtae staking balance
+        stakingBlanace[msg.sender] = stakingBlanace[msg.sender]+_amount;
+
+        // check if they have not staked before
+        if(!hasStaked[msg.sender]){
+            stakers.push(msg.sender);
+        }
+
+        // update staking blance
+        isStaking[msg.sender] = true;
+        hasStaked[msg.sender] = true;
+        
     }
 
 
