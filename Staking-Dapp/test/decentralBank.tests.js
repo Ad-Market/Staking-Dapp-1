@@ -33,6 +33,7 @@ contract("DecentralBank", ([owner, customer]) => {
     await tether.transfer(customer, tokens("100"), { from: owner });
   });
 
+  // Mock Tether token Tests
   describe("Mock tether deployment", async () => {
     it("Matches name successfuly", async () => {
       const name = await tether.name();
@@ -40,10 +41,25 @@ contract("DecentralBank", ([owner, customer]) => {
     });
   });
 
+  // Reward token Tests
   describe("Reward Token deployment", async () => {
     it("Matches name successfuly", async () => {
       const name = await rwd.name();
       assert.equal(name, "Reward Token");
+    });
+  });
+
+  // Decentral Bank Tests
+  describe("Decentral Bank deployment", async () => {
+    it("Matches name successfuly", async () => {
+      const name = await decentralBank.name();
+      assert.equal(name, "Decentral Bank");
+    });
+
+    it("Bank has Tokens", async () => {
+      // get balance of decentral bank in reward contract
+      balance = await rwd.balanceOf(decentralBank.address);
+      assert.equal(balance, tokens("1000000"));
     });
   });
 });
