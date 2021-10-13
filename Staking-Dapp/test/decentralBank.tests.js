@@ -99,6 +99,14 @@ contract("DecentralBank", ([owner, customer]) => {
           "Bank mock tether balance after staking"
         );
 
+        // Check updtaed status
+        result = await decentralBank.isStaking(customer);
+        assert.equal(
+          result.toString(),
+          "true",
+          "Customer staking status is true"
+        );
+
         // End of rewards tokens for staking 'it'
       });
 
