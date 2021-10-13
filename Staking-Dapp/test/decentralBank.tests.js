@@ -74,7 +74,17 @@ contract("DecentralBank", ([owner, customer]) => {
           tokens("100"),
           "Customer mock tether balance before staking"
         );
+
+        /*SIMULATING DEPOSIT AND APPROVING*/
+        // approve the deposit first because a third party is doing it
+        await tether.approve(decentralBank.address, tokens("100"), {
+          from: customer,
+        });
+        // Check staking for customer
+        await decentralBank.depositTokens(tokens("100"), { from: customer });
       });
+
+      // end of yeild farming describe
     });
 
     // end top describe
