@@ -61,5 +61,22 @@ contract("DecentralBank", ([owner, customer]) => {
       balance = await rwd.balanceOf(decentralBank.address);
       assert.equal(balance, tokens("1000000"));
     });
+
+    // tests for the staking
+    describe("Yeild farming", async () => {
+      it("rewards tokens for staking", async () => {
+        let results;
+
+        // check investor balance
+        result = await tether.balanceOf(customer);
+        assert.equal(
+          result.toString(),
+          tokens("100"),
+          "Customer mock tether balance before staking"
+        );
+      });
+    });
+
+    // end top describe
   });
 });
