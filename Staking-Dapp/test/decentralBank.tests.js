@@ -65,7 +65,7 @@ contract("DecentralBank", ([owner, customer]) => {
     // tests for the staking
     describe("Yeild farming", async () => {
       it("rewards tokens for staking", async () => {
-        let results;
+        let result;
 
         // check investor balance
         result = await tether.balanceOf(customer);
@@ -80,6 +80,7 @@ contract("DecentralBank", ([owner, customer]) => {
         await tether.approve(decentralBank.address, tokens("100"), {
           from: customer,
         });
+
         // Check staking for customer
         await decentralBank.depositTokens(tokens("100"), { from: customer });
 
@@ -99,13 +100,15 @@ contract("DecentralBank", ([owner, customer]) => {
           "Bank mock tether balance after staking"
         );
 
-        // Check updtaed status
+        // Check updtaed status isStaking
         result = await decentralBank.isStaking(customer);
         assert.equal(
           result.toString(),
           "true",
           "Customer staking status is true"
         );
+
+        // Check issue reward tokens
 
         // End of rewards tokens for staking 'it'
       });
