@@ -4,6 +4,8 @@ import "./App.css";
 import Navbar from "./Navbar";
 import Web3 from "web3";
 import Tether from "../truffle_abis/Tether.json";
+import RWD from "../truffle_abis/RWD.json";
+import DecentralBank from "../truffle_abis/DecentralBank.json";
 
 // create class for component
 class App extends Component {
@@ -52,9 +54,43 @@ class App extends Component {
         .balanceOf(this.state.account)
         .call();
       this.setState({ tetherBalance: tetherBalance.toString() });
-      console.log({ balance: tetherBalance });
     } else {
-      window.alert("Error !! No Detected network");
+      window.alert("Error Tether!! No Detected network");
+    }
+
+    // load in RWD contract
+    const rwdData = RWD.networks[networkId];
+    if (rwdData) {
+      // get the abi and address of the contract andsend it to rwd variable using web3
+      const rwd = new web3.eth.Contract(RWD.abi, rwdData.address);
+      this.setState({ rwd });
+
+      // get balance of the account
+      let rwdBalance = await rwd.methods.balanceOf(this.state.account).call();
+      this.setState({ rwdBalance: rwdBalance.toString() });
+      console.log({ rwdBalance: rwdBalance });
+    } else {
+      window.alert("Error RWD!! No Detected network");
+    }
+
+    // load in Decentral bank contract
+    const decentralBankData = DecentralBank.networks[networkId];
+    if (decentralBankData) {
+      // get the abi and address of the contract andsend it to rwd variable using web3
+      const decentralBank = new web3.eth.Contract(
+        DecentralBank.abi,
+        decentralBankData.address
+      );
+      this.setState({ decentralBank });
+
+      // get balance of the account
+      let stakingBlance = await decentralBank.methods
+        .stakingBlanace(this.state.account)
+        .call();
+      this.setState({ stakingBalance: stakingBlance.toString() });
+      console.log({ stakignBalance: stakingBlance });
+    } else {
+      window.alert("Error Bank!! No Detected network");
     }
   }
 
