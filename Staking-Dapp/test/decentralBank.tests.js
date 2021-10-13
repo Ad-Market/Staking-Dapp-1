@@ -82,11 +82,29 @@ contract("DecentralBank", ([owner, customer]) => {
         });
         // Check staking for customer
         await decentralBank.depositTokens(tokens("100"), { from: customer });
+
+        // Check updated balance of customer after deposit
+        result = await tether.balanceOf(customer);
+        assert.equal(
+          result.toString(),
+          tokens("0"),
+          "Customer mock tether balance after staking"
+        );
+
+        // Check decentral bank balance after deposit
+        balance = await tether.balanceOf(decentralBank.address);
+        assert.equal(
+          balance,
+          tokens("100"),
+          "Bank mock tether balance after staking"
+        );
+
+        // End of rewards tokens for staking 'it'
       });
 
-      // end of yeild farming describe
+      // end of yeild farming 'describe'
     });
 
-    // end top describe
+    // end of decentral bak deployment 'describe'
   });
 });
