@@ -97,6 +97,19 @@ class App extends Component {
     this.setState({ loading: false });
   }
 
+  // funstion for unstaking that grabs the unstake tokens from DecentralBank contracts
+  unstakeTokens = () => {
+    // reset loading to true
+    this.setState({ loading: true });
+    // grabbind unstake function from decentralBank for this account from state
+    this.state.decentralBank.methods
+      .unstakeTokens()
+      .send({ from: this.state.account })
+      .on("transactionHash", (hash) => {
+        this.setState({ loading: false });
+      });
+  };
+
   // funstion for staking that grabs the diposit tokens from DecentralBank contracts
   stakeTokens = (amount) => {
     // reset loading to true
@@ -150,6 +163,7 @@ class App extends Component {
               rwdBalance={this.state.rwdBalance}
               stakingBalance={this.state.stakingBalance}
               stakeTokens={this.stakeTokens}
+              unstakeTokens={this.unstakeTokens}
             />
           ));
     }
