@@ -6,6 +6,7 @@ import Web3 from "web3";
 import Tether from "../truffle_abis/Tether.json";
 import RWD from "../truffle_abis/RWD.json";
 import DecentralBank from "../truffle_abis/DecentralBank.json";
+import Main from "./Main.js";
 
 // create class for component
 class App extends Component {
@@ -68,7 +69,7 @@ class App extends Component {
       // get balance of the account
       let rwdBalance = await rwd.methods.balanceOf(this.state.account).call();
       this.setState({ rwdBalance: rwdBalance.toString() });
-      console.log({ rwdBalance: rwdBalance });
+      //console.log({ rwdBalance: rwdBalance });
     } else {
       window.alert("Error RWD!! No Detected network");
     }
@@ -88,10 +89,12 @@ class App extends Component {
         .stakingBlanace(this.state.account)
         .call();
       this.setState({ stakingBalance: stakingBlance.toString() });
-      console.log({ stakignBalance: stakingBlance });
+      //console.log({ stakignBalance: stakingBlance });
     } else {
       window.alert("Error Bank!! No Detected network");
     }
+
+    this.setState({ loading: false });
   }
 
   constructor(props) {
@@ -114,8 +117,18 @@ class App extends Component {
     return (
       <div>
         <Navbar account={this.state.account} />
-        <div className="text-center">
-          <h1>Hello, World</h1>
+        <div className="container-fluid mt-5">
+          <div className="row">
+            <main
+              role="main"
+              className="col-lg-12 ml-auto mr-auto"
+              style={{ maxWidth: "600px", minHeight: "100vm" }}
+            >
+              <div>
+                <Main />
+              </div>
+            </main>
+          </div>
         </div>
       </div>
     );
