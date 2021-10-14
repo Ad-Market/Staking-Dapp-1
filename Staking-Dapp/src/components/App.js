@@ -97,6 +97,24 @@ class App extends Component {
     this.setState({ loading: false });
   }
 
+  // funstion for staking that grabs the diposit tokens from DecentralBank contracts
+  stakeTokens = (amount) => {
+    // reset loading to true
+    this.setState({ loading: true });
+    // grabbind deposit function from decentralBank for this account from state
+    this.state.tether.methods
+      .approve(this.state.decentralBank._address, amount)
+      .send({ from: this.state.account })
+      .on("transactionHash", (hash) => {
+        this.state.decentralBank.methods
+          .depositTokens(amount)
+          .send({ from: this.state.account })
+          .on("transactionHash", (hash) => {
+            this.setState({ loading: false });
+          });
+      });
+  };
+
   constructor(props) {
     super(props);
     // innitializing state
@@ -131,6 +149,7 @@ class App extends Component {
               tetherBalance={this.state.tetherBalance}
               rwdBalance={this.state.rwdBalance}
               stakingBalance={this.state.stakingBalance}
+              stakeTokens={this.stakeTokens}
             />
           ));
     }
