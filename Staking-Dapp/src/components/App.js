@@ -126,7 +126,13 @@ class App extends Component {
             </p>
           ))
         : // else render the main component
-          (content = <Main />);
+          (content = (
+            <Main
+              tetherBalance={this.state.tetherBalance}
+              rwdBalance={this.state.rwdBalance}
+              stakingBalance={this.state.stakingBalance}
+            />
+          ));
     }
     return (
       <div>
