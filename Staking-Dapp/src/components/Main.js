@@ -36,7 +36,7 @@ class Main extends Component {
                   style={{ marginLeft: "5px" }}
                   required
                 />
-                <div className="input-grouped-open">
+                <div className="input-group-open">
                   <div className="input-group-text">
                     <img alt="tether" src={tether} height="33" />
                     &nbsp;&nbsp;&nbsp;mUSDT

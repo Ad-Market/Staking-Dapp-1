@@ -102,7 +102,7 @@ class App extends Component {
     // innitializing state
     this.state = {
       account: "0x0",
-      // getting contracts from abis
+      // for getting contracts from abis
       tether: {},
       rwd: {},
       decentralBank: {},
@@ -113,7 +113,21 @@ class App extends Component {
     };
   }
 
+  // rendering components to the screen
   render() {
+    // to hod the content while and after loading
+    let content;
+    {
+      // if loading display LOADING ...
+      this.state.loading
+        ? (content = (
+            <p id="loader" className="text-center" style={{ margin: "30px" }}>
+              LAODING ...
+            </p>
+          ))
+        : // else render the main component
+          (content = <Main />);
+    }
     return (
       <div>
         <Navbar account={this.state.account} />
@@ -124,9 +138,7 @@ class App extends Component {
               className="col-lg-12 ml-auto mr-auto"
               style={{ maxWidth: "600px", minHeight: "100vm" }}
             >
-              <div>
-                <Main />
-              </div>
+              <div>{content}</div>
             </main>
           </div>
         </div>
