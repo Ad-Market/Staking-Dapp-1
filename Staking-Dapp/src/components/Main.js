@@ -1,6 +1,6 @@
 import React, { Component } from "react";
+import tether from "../tether.png";
 
-// basic user interface skeleton
 // create class for component
 class Main extends Component {
   render() {
@@ -20,6 +20,48 @@ class Main extends Component {
             </tr>
           </tbody>
         </table>
+        <div className="card mb-2" style={{ opacity: ".9" }}>
+          <form className="mb-3">
+            <div style={{ borderSpacing: "0 1em" }}>
+              <label className="float-left" style={{ marginLeft: "15px" }}>
+                <b>Stake Tokens</b>
+              </label>
+              <span className="float-right" style={{ marginRight: "8px" }}>
+                Balance:
+              </span>
+              <div className="input-group mb-4">
+                <input
+                  type="text"
+                  placeholder="0"
+                  style={{ marginLeft: "5px" }}
+                  required
+                />
+                <div className="input-grouped-open">
+                  <div className="input-group-text">
+                    <img alt="tether" src={tether} height="33" />
+                    &nbsp;&nbsp;&nbsp;mUSDT
+                  </div>
+                </div>
+              </div>
+              <button
+                type="submit"
+                className="btn btn-primary btn-lg btn-block"
+                style={{ width: "60%", marginLeft: "20%" }}
+              >
+                STAKE
+              </button>
+            </div>
+          </form>
+          <button
+            className="btn btn-warning btn-lg btn-block"
+            style={{ width: "60%", marginLeft: "20%" }}
+          >
+            UNSTAKE
+          </button>
+          <div className="card-body text-center" style={{ color: "blue" }}>
+            AIRDROP
+          </div>
+        </div>
       </div>
     );
   }
