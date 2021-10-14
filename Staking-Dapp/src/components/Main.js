@@ -72,6 +72,11 @@ class Main extends Component {
             </div>
           </form>
           <button
+            type="submit"
+            onClick={(event) => {
+              event.preventDefault();
+              this.props.unstakeTokens();
+            }}
             className="btn btn-warning btn-lg btn-block"
             style={{ width: "60%", marginLeft: "20%" }}
           >
