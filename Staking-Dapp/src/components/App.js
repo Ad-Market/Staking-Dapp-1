@@ -70,7 +70,7 @@ class App extends Component {
       // get balance of the account
       let rwdBalance = await rwd.methods.balanceOf(this.state.account).call();
       this.setState({ rwdBalance: rwdBalance.toString() });
-      //console.log({ rwdBalance: rwdBalance });
+      // console.log({ rwdBalance: rwdBalance });
     } else {
       window.alert("Error RWD!! No Detected network");
     }
@@ -154,7 +154,7 @@ class App extends Component {
       this.state.loading
         ? (content = (
             <p id="loader" className="text-center" style={{ margin: "30px" }}>
-              LAODING ...
+              LOADING ...
             </p>
           ))
         : // else render the main component

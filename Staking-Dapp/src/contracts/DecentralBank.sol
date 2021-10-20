@@ -57,7 +57,7 @@ contract DecentralBank {
     function issueTokens() public{
 
         // only owner issues tokens
-        require(msg.sender == owner, 'The issuer must be the owner');
+        // require(msg.sender == owner, 'The issuer must be the owner');
 
         // loop to itterate through and stakers and reward who are staking
         for(uint i = 0;i<stakers.length;i++){

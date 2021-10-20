@@ -47,10 +47,10 @@ class ParticleSettings extends Component {
             },
             particles: {
               color: {
-                value: "#AAAAAA",
+                value: "#000000",
               },
               links: {
-                color: "#AAAAAA",
+                color: "#737373",
                 distance: 150,
                 enable: true,
                 opacity: 0.5,

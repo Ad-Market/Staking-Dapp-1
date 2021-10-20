@@ -8,13 +8,13 @@ class Main extends Component {
     return (
       <div id="content" className="mt-3">
         <table className="table text-muted text-center">
-          <thead>
-            <tr style={{ color: "black" }}>
-              <th scope="col">Staking Blanace</th>
+          <thead style={{ backgroundColor: "#EFEFEF" }}>
+            <tr style={{ color: "black", opacity: ".9" }}>
+              <th scope="col">Staking Balance</th>
               <th scope="col">Reward Balance</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody style={{ backgroundColor: "#EFEFEF", opacity: ".9" }}>
             <tr style={{ color: "black" }}>
               <td>
                 {window.web3.utils.fromWei(this.props.stakingBalance, "Ether")}{" "}
@@ -26,7 +26,7 @@ class Main extends Component {
             </tr>
           </tbody>
         </table>
-        <div className="card mb-2" style={{ opacity: ".9" }}>
+        <div className="card mb-2" style={{ opacity: "1" }}>
           <form
             onSubmit={(event) => {
               // button can only be hit once
@@ -38,31 +38,35 @@ class Main extends Component {
             }}
             className="mb-3"
           >
-            <div style={{ borderSpacing: "0 1em" }}>
-              <label className="float-left" style={{ marginLeft: "15px" }}>
-                <b>Stake Tokens</b>
-              </label>
-              <span className="float-right" style={{ marginRight: "8px" }}>
-                Balance:{" "}
-                {window.web3.utils.fromWei(this.props.tetherBalance, "Ether")}
-              </span>
-              <div className="input-group mb-4">
-                <input
-                  ref={(input) => {
-                    this.input = input;
-                  }}
-                  type="text"
-                  placeholder="0"
-                  style={{ marginLeft: "5px" }}
-                  required
-                />
-                <div className="input-group-open">
-                  <div className="input-group-text">
-                    <img alt="tether" src={tether} height="33" />
-                    &nbsp;&nbsp;&nbsp;mUSDT
+            <div style={{ borderSpacing: "0 1em", padding: "5% 0% 0% 0%" }}>
+              <div style={{ padding: "0% 5% 0% 5%" }}>
+                <label className="float-left" style={{ marginLeft: "15px" }}>
+                  <b>Stake Tokens</b>
+                </label>
+                <span className="float-right" style={{ marginRight: "8px" }}>
+                  <b>Balance:</b>{" "}
+                  {window.web3.utils.fromWei(this.props.tetherBalance, "Ether")}
+                  &nbsp;mUSDT
+                </span>
+                <div className="input-group mb-4">
+                  <input
+                    ref={(input) => {
+                      this.input = input;
+                    }}
+                    type="text"
+                    placeholder="0"
+                    style={{ marginLeft: "5px" }}
+                    required
+                  />
+                  <div className="input-group-open">
+                    <div className="input-group-text">
+                      <img alt="tether" src={tether} height="33" />
+                      &nbsp;&nbsp;&nbsp;mUSDT
+                    </div>
                   </div>
                 </div>
               </div>
+
               <button
                 type="submit"
                 className="btn btn-primary btn-lg btn-block"
