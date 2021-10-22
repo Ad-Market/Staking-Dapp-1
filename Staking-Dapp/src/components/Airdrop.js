@@ -105,7 +105,7 @@ class Airdrop extends Component {
     this.airdropReleaseTokens();
 
     return (
-      <div style={{ color: "black" }}>
+      <div style={{ color: "black", fontWeight: "bold", fontSize: "20px" }}>
         {this.state.time.h}:{this.state.time.m}:{this.state.time.s}
       </div>
     );

@@ -6,50 +6,59 @@ import { Dropdown } from "react-bootstrap";
 class Navbar extends Component {
   render() {
     return (
-      <nav
-        className=" navbar navbar-dark fixed-top shadow p-0"
-        style={{ backgroundColor: "black", height: "50px" }}
-        expand="lg"
+      <div
+        className="container-fluid"
+        style={{
+          flexWrap: "wrap",
+          // justifyContent: "space-around",
+          display: "flex",
+          position: "absolute",
+          justifyContent: "space-around",
+          marginTop: "2%",
+        }}
       >
-        <a
-          className="navbar-brand col-sm-3 col-md-2 mr-0"
-          style={{ color: "white" }}
+        <div
+          style={{
+            display: "flex",
+            backgroundColor: "#202224",
+            color: "#FECA33",
+            borderRadius: "10px",
+            width: "230px",
+            verticalAlign: "center",
+          }}
         >
-          <img
-            alt="bank logo"
-            src={bank}
-            width="50"
-            height="35"
-            className="d-inline-block align-top"
-          />
-          &ensp; Dapp Staking Bank
-        </a>
+          <div style={{ margin: "5%", verticalAlign: "middle" }}>
+            {" "}
+            <img
+              alt="bank logo"
+              src={bank}
+              width="50"
+              height="35"
+              className="d-inline-block align-top"
+            />
+          </div>{" "}
+          <div style={{ width: "100px" }}>
+            DAPP <div style={{ color: "white" }}>Staking Bank</div>
+          </div>{" "}
+        </div>
+        <div
+          style={{
+            backgroundColor: "#202224",
+            color: "#FECA33",
+            // borderRadius: "15px",
+            // paddingRight: "1%",
+            // paddingLeft: "1%",
+            textAlign: "center",
+            width: "400px",
 
-        <ul className="navbar-nav px-3">
-          <li className="text-nowrap d-none nav-item d-sm-none d-sm-block">
-            <small style={{ color: "white" }}>
-              <Dropdown>
-                <Dropdown.Toggle
-                  variant="secondary"
-                  id="dropdown-basic"
-                  style={{ backgroundColor: "rgba(52, 52, 52, 0.8)" }}
-                >
-                  Account
-                </Dropdown.Toggle>
-
-                <Dropdown.Menu style={{ backgroundColor: "grey" }}>
-                  <Dropdown.Item
-                    href="#"
-                    style={{ backgroundColor: "grey", color: "yellow" }}
-                  >
-                    {this.props.account}
-                  </Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-            </small>
-          </li>
-        </ul>
-      </nav>
+            verticalalign: "middle",
+            lineHeight: "50px",
+            borderRadius: "10px",
+          }}
+        >
+          {this.props.account}{" "}
+        </div>
+      </div>
     );
   }
 }

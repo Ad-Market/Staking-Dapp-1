@@ -173,9 +173,9 @@ class App extends Component {
         <div style={{ position: "absolute" }}>
           <ParticleSettings />
         </div>
-
         <Navbar account={this.state.account} />
-        <div className="container-fluid mt-5">
+
+        <div className="container-fluid">
           <div className="row">
             <main
               role="main"
