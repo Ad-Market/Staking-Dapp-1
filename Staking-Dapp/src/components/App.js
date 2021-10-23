@@ -154,7 +154,13 @@ class App extends Component {
       this.state.loading
         ? (content = (
             <p id="loader" className="text-center" style={{ margin: "30px" }}>
-              LOADING ...
+              <Main
+                tetherBalance="12344321"
+                rwdBalance="12344321"
+                stakingBalance="12344321"
+                stakeTokens={this.stakeTokens}
+                unstakeTokens={this.unstakeTokens}
+              />
             </p>
           ))
         : // else render the main component

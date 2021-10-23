@@ -45,12 +45,10 @@ class Navbar extends Component {
           style={{
             backgroundColor: "#202224",
             color: "#FECA33",
-            // borderRadius: "15px",
-            // paddingRight: "1%",
-            // paddingLeft: "1%",
             textAlign: "center",
             width: "400px",
-
+            minWidth: "100px",
+            overflow: "hidden",
             verticalalign: "middle",
             lineHeight: "50px",
             borderRadius: "10px",
