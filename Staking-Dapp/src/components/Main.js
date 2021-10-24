@@ -41,7 +41,7 @@ class Main extends Component {
           style={{
             position: "relative",
             backgroundColor: "#FFFFFF",
-            marginTop: "30%",
+            marginTop: "35%",
             borderRadius: "10px",
             justifyContent: "center",
             paddingBottom: "5%",
@@ -77,6 +77,16 @@ class Main extends Component {
                   this.props.stakeTokens(amount);
                 }}
               >
+                <p>
+                  <b>
+                    Balance:{" "}
+                    {window.web3.utils.fromWei(
+                      this.props.tetherBalance,
+                      "Ether"
+                    )}{" "}
+                    mUSDT
+                  </b>
+                </p>
                 <div style={{ display: "flex" }}>
                   <input
                     ref={(input) => {
