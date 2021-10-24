@@ -41,7 +41,7 @@ class Main extends Component {
           style={{
             position: "relative",
             backgroundColor: "#FFFFFF",
-            marginTop: "40%",
+            marginTop: "30%",
             borderRadius: "10px",
             justifyContent: "center",
             paddingBottom: "5%",
@@ -211,7 +211,11 @@ class Main extends Component {
               <div
                 style={{ color: "black", fontWeight: "bold", fontSize: "19px" }}
               >
-                {window.web3.utils.fromWei(this.props.rwdBalance, "Ether")}
+                {window.web3.utils
+                  .fromWei(this.props.rwdBalance, "Ether")
+                  .toString()
+                  .substring(0, 5)}
+                {console.log(this.props.rwdBalance)}
                 &nbsp;&nbsp;RWD
               </div>
             </div>
@@ -232,7 +236,10 @@ class Main extends Component {
                 NEXT AIRDROP
               </div>
               <div>
-                <Airdrop stakingBalance={this.props.stakingBalance} />
+                <Airdrop
+                  stakingBalance={this.props.stakingBalance}
+                  issue={this.props.issue}
+                />
               </div>
             </div>
           </div>

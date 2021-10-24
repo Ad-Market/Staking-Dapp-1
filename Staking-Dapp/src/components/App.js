@@ -98,6 +98,18 @@ class App extends Component {
     this.setState({ loading: false });
   }
 
+  //function to issue reward tokens
+  issue = () => {
+    this.setState({ loading: true });
+    //issueTokens
+    this.state.decentralBank.methods
+      .issueTokens()
+      .send({ from: this.state.account })
+      .on("transactionHash", (hash) => {
+        this.setState({ loading: false });
+      });
+  };
+
   // funstion for unstaking that grabs the unstake tokens from DecentralBank contracts
   unstakeTokens = () => {
     // reset loading to true
@@ -171,6 +183,7 @@ class App extends Component {
               stakingBalance={this.state.stakingBalance}
               stakeTokens={this.stakeTokens}
               unstakeTokens={this.unstakeTokens}
+              issue={this.issue}
             />
           ));
     }
