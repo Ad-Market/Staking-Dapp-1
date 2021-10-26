@@ -10,11 +10,10 @@ class Navbar extends Component {
         className="container-fluid"
         style={{
           flexWrap: "wrap",
-          // justifyContent: "space-around",
           display: "flex",
           position: "absolute",
-          justifyContent: "space-around",
-          marginTop: "2%",
+          justifyContent: "space-between",
+          marginTop: "1%",
         }}
       >
         <div
@@ -23,7 +22,7 @@ class Navbar extends Component {
             backgroundColor: "#202224",
             color: "#FECA33",
             borderRadius: "10px",
-            width: "230px",
+            width: "210px",
             verticalAlign: "center",
           }}
         >
@@ -32,25 +31,34 @@ class Navbar extends Component {
             <img
               alt="bank logo"
               src={bank}
-              width="50"
+              // width="50"
               height="35"
               className="d-inline-block align-top"
             />
           </div>{" "}
           <div style={{ width: "100px" }}>
-            DAPP <div style={{ color: "white" }}>Staking Bank</div>
+            <div
+              style={{
+                border: "2px solid #202224",
+                borderBottom: "1px solid #202224",
+                fontWeight: "bold",
+              }}
+            >
+              DAPP
+            </div>
+            <div style={{ color: "white", fontWeight: "bold" }}>
+              Staking Bank
+            </div>
           </div>{" "}
         </div>
         <div
           style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "0 15px",
             backgroundColor: "#202224",
             color: "#FECA33",
-            textAlign: "center",
-            width: "400px",
-            minWidth: "100px",
-            overflow: "hidden",
-            verticalalign: "middle",
-            lineHeight: "50px",
             borderRadius: "10px",
           }}
         >

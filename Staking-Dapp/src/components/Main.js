@@ -5,6 +5,11 @@ import "./Main.css";
 
 // create class for component
 class Main extends Component {
+  // same color usd and backround
+  // and backround for the logo same
+  // shadow for card
+  // stake tokens inceease size
+
   render() {
     if (this.props.stakingBalance == "12344321") {
       return (
@@ -13,14 +18,17 @@ class Main extends Component {
           style={{
             position: "relative",
             backgroundColor: "#FFFFFF",
-            marginTop: "40%",
+            marginTop: "30%",
             borderRadius: "10px",
             justifyContent: "center",
+            verticalAlign: "middle",
             paddingBottom: "5%",
+            height: "500px",
           }}
         >
           <div
             style={{
+              marginTop: "25%",
               display: "inline-block",
               width: "70%",
               paddingTop: "5%",
@@ -39,16 +47,20 @@ class Main extends Component {
         <div
           id="content"
           style={{
+            boxShadow: "5px 5px 5px  #CCC7C7 ",
             position: "relative",
             backgroundColor: "#FFFFFF",
-            marginTop: "35%",
+            marginTop: "30%",
             borderRadius: "10px",
             justifyContent: "center",
             paddingBottom: "5%",
+            // border: "solid",
+            height: "500px",
           }}
         >
           <div
             style={{
+              // border: "solid",
               marginLeft: "15%",
               marginTop: "15%",
               display: "inline-block",
@@ -57,9 +69,11 @@ class Main extends Component {
           >
             <div style={{ fontSize: "12px" }}>
               {" "}
-              <b style={{ fontSize: "23px" }}>Stake Tokens</b>
+              <b style={{ fontSize: "30px" }}>Stake Tokens</b>
               <br />
-              Start by inputing the amount you would like to stake/unstake
+              <p style={{ fontSize: "14px" }}>
+                Start by inputing the amount you would like to stake/unstake
+              </p>
             </div>
             <div
               style={{
@@ -77,15 +91,16 @@ class Main extends Component {
                   this.props.stakeTokens(amount);
                 }}
               >
-                <p>
-                  <b>
-                    Balance:{" "}
-                    {window.web3.utils.fromWei(
-                      this.props.tetherBalance,
-                      "Ether"
-                    )}{" "}
-                    mUSDT
-                  </b>
+                <p
+                  style={{
+                    textAlign: "right",
+                    fontWeight: "bold",
+                    color: "black",
+                  }}
+                >
+                  Balance:{" "}
+                  {window.web3.utils.fromWei(this.props.tetherBalance, "Ether")}{" "}
+                  mUSDT
                 </p>
                 <div style={{ display: "flex" }}>
                   <input
@@ -96,25 +111,31 @@ class Main extends Component {
                     placeholder="Amount"
                     style={{
                       paddingLeft: "5%",
-                      borderRadius: "7px",
+                      borderRadius: "7px 0 0 7px",
+                      borderRight: " rgba(0, 0, 0, 0.05)",
                       height: "40px",
-                      borderColor: "#E5E5E5",
+                      borderColor: "rgba(0, 0, 0, 0.1)",
                       width: "75%",
                     }}
                     required
                   />
-                  <div className="input-group-open">
+                  <div
+                    className="input-group-open"
+                    style={{ borderColor: "black" }}
+                  >
                     <div
                       className="input-group-text"
-                      style={{ color: "black", width: "100%" }}
+                      style={{
+                        borderColor: "rgba(0, 0, 0, 0)",
+                        backgroundColor: "rgba(0, 0, 0, 0.07)",
+                        color: "#696969",
+                        width: "100%",
+                        borderRadius: "0 7px 7px 0",
+                        borderLeft: "rgba(0, 0, 0, 0.05)",
+                      }}
                     >
                       <b>mUSDT</b>&nbsp;&nbsp;&nbsp;
-                      <img
-                        alt="tether"
-                        src={tether}
-                        height="23"
-                        style={{ borderRadius: "5px" }}
-                      />
+                      <img alt="tether" src={tether} height="26" style={{}} />
                     </div>
                   </div>
                 </div>
@@ -122,7 +143,6 @@ class Main extends Component {
                   style={{
                     display: "flex",
                     flexWrap: "wrap",
-
                     marginTop: "5%",
                     justifyContent: "space-around",
                   }}
@@ -199,7 +219,7 @@ class Main extends Component {
                 style={{ color: "black", fontWeight: "bold", fontSize: "19px" }}
               >
                 {window.web3.utils.fromWei(this.props.stakingBalance, "Ether")}
-                &nbsp;&nbsp;mUSDT
+                &nbsp;mUSDT
               </div>
             </div>
             <div
@@ -226,7 +246,7 @@ class Main extends Component {
                   .toString()
                   .substring(0, 5)}
                 {console.log(this.props.rwdBalance)}
-                &nbsp;&nbsp;RWD
+                &nbsp;RWD
               </div>
             </div>
             <div

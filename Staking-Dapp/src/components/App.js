@@ -199,7 +199,10 @@ class App extends Component {
             <main
               role="main"
               className="col-lg-12 ml-auto mr-auto"
-              style={{ maxWidth: "600px", minHeight: "100vm" }}
+              style={{
+                maxWidth: "600px",
+                minHeight: "100vm",
+              }}
             >
               <div style={{ marginTop: "20%" }}>{content}</div>
             </main>

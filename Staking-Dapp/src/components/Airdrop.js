@@ -5,41 +5,12 @@ import React, { Component } from "react";
 import DecentralBank from "../truffle_abis/DecentralBank.json";
 
 class Airdrop extends Component {
-  // // calls load web3 before rendering
-  // async UNSAFE_componentWillMount() {
-  //   // loading blochain Data
-  //   await this.loadBlockchainData();
-  // }
-
-  // async loadBlockchainData() {
-  //   const web3 = window.web3;
-
-  //   // setup network id and hook it up to our contract
-  //   const networkId = await web3.eth.net.getId();
-  //   console.log(networkId);
-
-  //   // load in Decentral bank contract
-  //   const decentralBankData = DecentralBank.networks[networkId];
-  //   if (decentralBankData) {
-  //     // get the abi and address of the contract andsend it to rwd variable using web3
-  //     const decentralBank = new web3.eth.Contract(
-  //       DecentralBank.abi,
-  //       decentralBankData.address
-  //     );
-
-  //     console.log(decentralBank);
-  //     this.setState({ decentralBank });
-  //   } else {
-  //     window.alert("Error Bank!! No Detected network");
-  //   }
-  // }
-
   constructor() {
     super();
     this.state = {
       //86400
       time: {},
-      seconds: 10,
+      seconds: 15,
       decentralBank: {},
     };
     this.timer = 0;
