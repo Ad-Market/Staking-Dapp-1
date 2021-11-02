@@ -10,6 +10,17 @@ class Main extends Component {
   // shadow for card
   // stake tokens inceease size
 
+  // constructor(props) {
+  //   super(props);
+  //   // innitializing state
+  //   this.state = {
+  //     // for getting contracts from abis
+  //     tetherBalance1: this.props.tetherBalance,
+  //     rwdBalance: this.props.rwdBalance,
+  //     stakingBalance: this.props.stakingBalance,
+  //   };
+  // }
+
   render() {
     if (this.props.stakingBalance == "12344321") {
       return (
@@ -245,7 +256,6 @@ class Main extends Component {
                   .fromWei(this.props.rwdBalance, "Ether")
                   .toString()
                   .substring(0, 5)}
-                {console.log(this.props.rwdBalance)}
                 &nbsp;RWD
               </div>
             </div>

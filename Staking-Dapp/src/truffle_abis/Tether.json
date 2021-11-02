@@ -9075,12 +9075,12 @@
         }
       },
       "links": {},
-      "address": "0xD7A8356501c7CCCEC24D9c47fA38BDFF74D219f3",
-      "transactionHash": "0xb8471508a1a92df463585cc48ae059a9c857abe8ba6afa63075c862ac0a0d3f4"
+      "address": "0x8F11d7ca2eED1dBB7CEd40ffCdde6967246222A3",
+      "transactionHash": "0xa23be79f0df52ff098da9cf1eec2390b4279b911354770ca53769623d2f4f163"
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-10-26T20:37:30.654Z",
+  "updatedAt": "2021-10-31T19:39:47.173Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

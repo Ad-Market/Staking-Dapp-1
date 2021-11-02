@@ -157,6 +157,9 @@ class App extends Component {
     };
   }
 
+  handler = (amount) => {
+    this.setState({ tetherBalance: this.state.tetherBalance - amount });
+  };
   // rendering components to the screen
   render() {
     // to hod the content while and after loading
